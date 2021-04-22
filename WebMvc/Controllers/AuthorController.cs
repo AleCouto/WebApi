@@ -22,7 +22,8 @@ namespace WebMvc.Controllers
             {
                 //Connect To API using class Helper
                 ApiConnector obj = new ApiConnector();
-                string result = obj.Get(Constants.APIController_Author);
+                //string result = obj.Get(Constants.APIController_Author + "/GetAuthors"); //Solução do Professor
+                string result = obj.Get(Constants.APIController_Author + Constants.APIController_Action_Get);
                 // convert Json
                 lst = JsonConvert.DeserializeObject<List<Author>>(result);
             }
@@ -33,10 +34,24 @@ namespace WebMvc.Controllers
             return View(lst);
         }
 
+      
         // GET: Author/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Author author = new Author();
+            try
+            {
+                //Connect To API using class Helper
+                ApiConnector ac = new ApiConnector();
+                string result = ac.Get(Constants.APIController_Author + Constants.APIController_Action_GetId + id);
+                // convert Json
+                author = JsonConvert.DeserializeObject<Author>(result);
+            }
+            catch (Exception ex)  
+            {
+                Debug.Print(ex.Message);
+            }
+            return View(author);
         }
 
         // GET: Author/Create
@@ -50,16 +65,26 @@ namespace WebMvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
-            try
+            Author obj = new Author();
+            foreach(var item in collection)
             {
-                // TODO: Add insert logic here
+                switch (item.Key)
+                {
+                    case "authorId":
+                        obj.AuthorId = int.Parse(item.Value);
+                        break;
+                    case "Name":
+                        obj.Name = item.Value;
+                        break;
+                }
 
-                return RedirectToAction(nameof(Index));
             }
-            catch
-            {
+            string data = JsonConvert.SerializeObject(obj);
+
+            ApiConnector ac = new ApiConnector();
+            string result = ac.Post(Constants.APIController_Author, data);
                 return View();
-            }
+            
         }
 
         // GET: Author/Edit/5

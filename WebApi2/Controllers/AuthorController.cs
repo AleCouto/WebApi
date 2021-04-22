@@ -8,7 +8,7 @@ using WebApi.Data;
 
 namespace WebApi2.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")] // acrescentei o action no route
     [ApiController]
     public class AuthorController : ControllerBase
     {

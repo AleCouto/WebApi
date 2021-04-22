@@ -28,10 +28,9 @@ namespace WebMvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Data base configure services
-            services.AddDbContext<DataBaseBooks>(options =>
-                  options.UseSqlite(Configuration.GetConnectionString("DataBaseBooks2")));
 
+
+            //Data base Identity user MVC
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
