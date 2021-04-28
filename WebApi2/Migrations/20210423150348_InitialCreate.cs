@@ -15,7 +15,7 @@ namespace WebApi2.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
                     Country = table.Column<string>(type: "TEXT", maxLength: 20, nullable: true),
-                    Laguage = table.Column<string>(type: "TEXT", maxLength: 60, nullable: true),
+                    Language = table.Column<string>(type: "TEXT", maxLength: 60, nullable: true),
                     Description = table.Column<string>(type: "TEXT", maxLength: 120, nullable: true)
                 },
                 constraints: table =>
@@ -170,22 +170,22 @@ namespace WebApi2.Migrations
 
             migrationBuilder.InsertData(
                 table: "Authors",
-                columns: new[] { "AuthorId", "Country", "Description", "Laguage", "Name" },
+                columns: new[] { "AuthorId", "Country", "Description", "Language", "Name" },
                 values: new object[] { 1, "Portugal", null, "português", "Jose Saramago" });
 
             migrationBuilder.InsertData(
                 table: "Authors",
-                columns: new[] { "AuthorId", "Country", "Description", "Laguage", "Name" },
+                columns: new[] { "AuthorId", "Country", "Description", "Language", "Name" },
                 values: new object[] { 2, "Portugal", null, "português", "Fernando Pessoa" });
 
             migrationBuilder.InsertData(
                 table: "Authors",
-                columns: new[] { "AuthorId", "Country", "Description", "Laguage", "Name" },
+                columns: new[] { "AuthorId", "Country", "Description", "Language", "Name" },
                 values: new object[] { 3, "Portugal", null, "português", "Eça de Queirós" });
 
             migrationBuilder.InsertData(
                 table: "Authors",
-                columns: new[] { "AuthorId", "Country", "Description", "Laguage", "Name" },
+                columns: new[] { "AuthorId", "Country", "Description", "Language", "Name" },
                 values: new object[] { 4, "Portugal", null, "português", "Miguel Torga" });
 
             migrationBuilder.InsertData(

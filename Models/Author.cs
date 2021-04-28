@@ -19,8 +19,8 @@ namespace Models
         public string Country { get; set; }
 
         [StringLength(60, MinimumLength = 3)]
-        [Display(Name = "Laguage")]
-        public string Laguage { get; set; }
+        [Display(Name = "Language")]
+        public string Language { get; set; }
 
         [StringLength(120, MinimumLength = 3)]
         public string Description { get; set; }
@@ -37,12 +37,12 @@ namespace Models
             AuthorId = authorId;
             Name = name;
         }
-        public Author(int authorId, string name, string country, string laguage)
+        public Author(int authorId, string name, string country, string language)
         {
             AuthorId = authorId;
             Name = name;
             Country = country;
-            Laguage = laguage;    
+            Language = language;    
         }
 
         public Author(IList<AuthorBook> authorBook)

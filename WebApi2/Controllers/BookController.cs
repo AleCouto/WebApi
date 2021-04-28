@@ -10,7 +10,7 @@ using Models;
 
 namespace WebApi2.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class BookController : ControllerBase
     {

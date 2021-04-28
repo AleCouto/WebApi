@@ -24,7 +24,7 @@ namespace Helper
             url = _url;
         }
 
-        //GET
+        //GET - LIST
         public string Get(string action)
         {
             string response = "";
@@ -54,7 +54,7 @@ namespace Helper
             return response;
         }
 
-        //GET ID - Confirmar se é necessario?
+        //GET ID - DETAILS
         public string GetId(string action, int id)
         {
             string response = "";
@@ -85,6 +85,8 @@ namespace Helper
             return response;
         }
 
+
+        //POST - CREATE
         public string Post(string action, string data)
         {
             string result = "";
@@ -100,6 +102,38 @@ namespace Helper
                 Debug.Print(ex.Message);
             }
             return result;
+        }
+
+
+        //PUT ID - UPDATE - em desesnvolvimento
+        public string Put(string action, int id, string data)
+        {
+            string response = "";
+            try
+            {
+                var wb = WebRequest.Create(url + action + id);
+
+                if (wb != null)
+                {
+                    wb.Method = "GET";
+                    wb.Timeout = 1200;
+                    wb.ContentType = "application/json";
+
+
+                    using (Stream s = wb.GetResponse().GetResponseStream())
+                    {
+                        using (StreamReader sr = new StreamReader(s))
+                        {
+                            response = sr.ReadToEnd();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Print(ex.Message);
+            }
+            return response;
         }
     }
 }

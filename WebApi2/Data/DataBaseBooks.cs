@@ -20,17 +20,17 @@ namespace WebApi.Data
 
         public DbSet<User> User { get; set; }
 
-        public DbSet<Order> Order { get; set; }
+        public DbSet<Order> Order { get; set; } 
 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Author>().HasData(
-                new Author() { AuthorId = 1, Name = "Jose Saramago", Country = "Portugal", Laguage = "português" },
-                new Author() { AuthorId = 2, Name = "Fernando Pessoa", Country = "Portugal", Laguage = "português" },
-                new Author() { AuthorId = 3, Name = "Eça de Queirós", Country = "Portugal", Laguage = "português" },
-                new Author() { AuthorId = 4, Name = "Miguel Torga", Country = "Portugal", Laguage = "português" }
+                new Author() { AuthorId = 1, Name = "Jose Saramago", Country = "Portugal", Language = "português" },
+                new Author() { AuthorId = 2, Name = "Fernando Pessoa", Country = "Portugal", Language = "português" },
+                new Author() { AuthorId = 3, Name = "Eça de Queirós", Country = "Portugal", Language = "português" },
+                new Author() { AuthorId = 4, Name = "Miguel Torga", Country = "Portugal", Language = "português" }
              );
             modelBuilder.Entity<PublishCompany>().HasData(
                 new PublishCompany() { PublishCompanyId = 1, Name = "Porto", PhoneNumber = 226088322, Email = "porto@porto.com.pt", Address = "Rua da Restauração 365", PostalCode = 4099023, Website = "www.portoeditora.pt" },

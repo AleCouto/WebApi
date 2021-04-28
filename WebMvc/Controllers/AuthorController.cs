@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Models;
 using Newtonsoft.Json;
 
-namespace WebMvc.Controllers
+namespace WebMvc.Controllers    
 {
     public class AuthorController : Controller
     {
@@ -43,7 +43,7 @@ namespace WebMvc.Controllers
             {
                 //Connect To API using class Helper
                 ApiConnector ac = new ApiConnector();
-                string result = ac.Get(Constants.APIController_Author + Constants.APIController_Action_GetId + id);
+                string result = ac.GetId(Constants.APIController_Author + Constants.APIController_Action_GetId, id);
                 // convert Json
                 author = JsonConvert.DeserializeObject<Author>(result);
             }
@@ -76,13 +76,19 @@ namespace WebMvc.Controllers
                     case "Name":
                         obj.Name = item.Value;
                         break;
+                    case "Country":
+                        obj.Country = item.Value;
+                        break;
+                    case "Language":
+                        obj.Language = item.Value;
+                        break;
                 }
 
             }
             string data = JsonConvert.SerializeObject(obj);
 
             ApiConnector ac = new ApiConnector();
-            string result = ac.Post(Constants.APIController_Author, data);
+            string result = ac.Post(Constants.APIController_Author + Constants.APIController_Action_Post, data);
                 return View();
             
         }
@@ -100,7 +106,29 @@ namespace WebMvc.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                Author obj = new Author();
+                foreach (var item in collection)
+                {
+                    switch (item.Key)
+                    {
+                        case "authorId":
+                            obj.AuthorId = int.Parse(item.Value);
+                            break;
+                        case "Name":
+                            obj.Name = item.Value;
+                            break;
+                        case "Country":
+                            obj.Country = item.Value;
+                            break;
+                        case "Language":
+                            obj.Language = item.Value;
+                            break;
+                    }
+                }
+                string data = JsonConvert.SerializeObject(obj);
+
+                ApiConnector ac = new ApiConnector();
+                string result = ac.Put(Constants.APIController_Author + Constants.APIController_Action_Put, id, data);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -108,7 +136,7 @@ namespace WebMvc.Controllers
             {
                 return View();
             }
-        }
+        }  
 
         // GET: Author/Delete/5
         public ActionResult Delete(int id)

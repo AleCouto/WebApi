@@ -9,14 +9,14 @@ using WebApi.Data;
 namespace WebApi2.Migrations
 {
     [DbContext(typeof(DataBaseBooks))]
-    [Migration("20210406160509_InitialCreate")]
+    [Migration("20210423150348_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.4");
+                .HasAnnotation("ProductVersion", "5.0.5");
 
             modelBuilder.Entity("Models.Author", b =>
                 {
@@ -32,7 +32,7 @@ namespace WebApi2.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Laguage")
+                    b.Property<string>("Language")
                         .HasMaxLength(60)
                         .HasColumnType("TEXT");
 
@@ -50,28 +50,28 @@ namespace WebApi2.Migrations
                         {
                             AuthorId = 1,
                             Country = "Portugal",
-                            Laguage = "português",
+                            Language = "português",
                             Name = "Jose Saramago"
                         },
                         new
                         {
                             AuthorId = 2,
                             Country = "Portugal",
-                            Laguage = "português",
+                            Language = "português",
                             Name = "Fernando Pessoa"
                         },
                         new
                         {
                             AuthorId = 3,
                             Country = "Portugal",
-                            Laguage = "português",
+                            Language = "português",
                             Name = "Eça de Queirós"
                         },
                         new
                         {
                             AuthorId = 4,
                             Country = "Portugal",
-                            Laguage = "português",
+                            Language = "português",
                             Name = "Miguel Torga"
                         });
                 });
