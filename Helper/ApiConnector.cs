@@ -106,34 +106,22 @@ namespace Helper
 
 
         //PUT ID - UPDATE - em desesnvolvimento
-        public string Put(string action, int id, string data)
+        public string Put(string action, string data)
         {
-            string response = "";
+            string result = "";
             try
             {
-                var wb = WebRequest.Create(url + action + id);
+                var content = new StringContent(data, Encoding.UTF8, "application/json");
+                HttpClient hc = new HttpClient();
+                HttpResponseMessage rp = hc.PutAsync(url + action, content).GetAwaiter().GetResult();
+                result = rp.Content.ReadAsStringAsync().GetAwaiter().GetResult();
 
-                if (wb != null)
-                {
-                    wb.Method = "GET";
-                    wb.Timeout = 1200;
-                    wb.ContentType = "application/json";
-
-
-                    using (Stream s = wb.GetResponse().GetResponseStream())
-                    {
-                        using (StreamReader sr = new StreamReader(s))
-                        {
-                            response = sr.ReadToEnd();
-                        }
-                    }
-                }
             }
             catch (Exception ex)
             {
                 Debug.Print(ex.Message);
             }
-            return response;
+            return result;
         }
     }
 }

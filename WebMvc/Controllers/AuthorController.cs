@@ -31,7 +31,7 @@ namespace WebMvc.Controllers
             {
                 Debug.Print(ex.Message);
             }
-            return View(lst);
+            return View(lst); 
         }
 
       
@@ -96,7 +96,20 @@ namespace WebMvc.Controllers
         // GET: Author/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Author author = new Author();
+            try
+            {
+                //Connect To API using class Helper
+                ApiConnector ac = new ApiConnector();
+                string result = ac.GetId(Constants.APIController_Author + Constants.APIController_Action_GetId, id);
+                // convert Json
+                author = JsonConvert.DeserializeObject<Author>(result);
+            }
+            catch (Exception ex)
+            {
+                Debug.Print(ex.Message);
+            }
+            return View(author);
         }
 
         // POST: Author/Edit/5
@@ -110,7 +123,7 @@ namespace WebMvc.Controllers
                 foreach (var item in collection)
                 {
                     switch (item.Key)
-                    {
+                    {  
                         case "authorId":
                             obj.AuthorId = int.Parse(item.Value);
                             break;
@@ -121,14 +134,14 @@ namespace WebMvc.Controllers
                             obj.Country = item.Value;
                             break;
                         case "Language":
-                            obj.Language = item.Value;
+                            obj.Language = item.Value;    
                             break;
                     }
                 }
                 string data = JsonConvert.SerializeObject(obj);
 
                 ApiConnector ac = new ApiConnector();
-                string result = ac.Put(Constants.APIController_Author + Constants.APIController_Action_Put, id, data);
+                string result = ac.Put(Constants.APIController_Author + Constants.APIController_Action_Put, data);
 
                 return RedirectToAction(nameof(Index));
             }
