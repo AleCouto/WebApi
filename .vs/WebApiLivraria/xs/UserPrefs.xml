@@ -1,0 +1,55 @@
+﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="Multiple Projects">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WebMvc/Views/Shared/_Layout.cshtml">
+    <Files>
+      <File FileName="WebMvc/Controllers/AuthorController.cs" Line="1" Column="1" />
+      <File FileName="WebMvc/Views/Author/Index.cshtml" Line="1" Column="1" />
+      <File FileName="WebMvc/Views/Author/Details.cshtml" />
+      <File FileName="WebMvc/Views/Author/Create.cshtml" />
+      <File FileName="WebMvc/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="WebMvc/Views/Shared/_Layout.cshtml" Line="28" Column="72" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WebApiLivraria" expanded="True">
+            <Node name="Helper" expanded="True" />
+            <Node name="Models" expanded="True" />
+            <Node name="WebApi2" expanded="True">
+              <Node name="Controllers" expanded="True" />
+            </Node>
+            <Node name="WebMvc" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Author" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WebApi2 PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.ItemProperties.WebMvc PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>WebApiLivraria/WebApiLivrariaMvc.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{17E92768-4CAA-483E-AEB8-FB1AA5F2CE92}" ItemName="WebApi2" ConfigurationId="Default" />
+        <StartupItem ItemId="{46838827-4A7C-4A94-907B-E6CA9DE6AD7B}" ItemName="WebMvc" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>
